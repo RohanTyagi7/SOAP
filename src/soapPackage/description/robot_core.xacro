@@ -40,6 +40,15 @@
             </geometry>
             <material name="white"/>
         </visual>
+        <collision>
+            <origin xyz="0.15 0 0.075"/>
+            <geometry>
+                <box size="0.3 0.3 0.15"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.7" x="0.3" y="0.3" z="0.15">
+            <origin xyz="0.15 0 0.075"/>
+        </xacro:inertial_box> 
     </link>
 
     <!-- LEFT PROPELLER -->
@@ -57,7 +66,15 @@
             </geometry>
             <material name="orange"/>
         </visual>
+        <collision>
+            <geometry>
+                <cylinder radius=".02" length=".06"/>
+            </geometry>
+        </collision>
     </link>
+    <xacro:inertial_cylinder mass=".03" x="-0.3" y="-0.1" z="0.02">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:inertial_cylinder>
 
     <!-- RIGHT PROPELLER-->
     <joint name="right_propeller_joint" type="continuous">
@@ -74,6 +91,14 @@
             </geometry>
             <material name="orange"/>
         </visual>
+        <collision>
+            <geometry>
+                <cylinder radius=".02" length=".06"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass=".03" x="0.3" y="0.1" z="0.02">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:inertial_cylinder>
     </link>
 
 </robot>
