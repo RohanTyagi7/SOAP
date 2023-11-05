@@ -42,4 +42,38 @@
         </visual>
     </link>
 
+    <!-- LEFT PROPELLER -->
+    <joint name="left_propeller_joint" type="continuous">
+        <parent link="chassis"/>
+        <child link="left_propeller"/>
+        <origin xyz="-.03 -0.1 0.02" rpy="0 ${pi/2} 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="left_propeller">
+        <visual>
+            <geometry>
+                <cylinder radius=".02" length=".06"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+    </link>
+
+    <!-- RIGHT PROPELLER-->
+    <joint name="right_propeller_joint" type="continuous">
+        <parent link="chassis"/>
+        <child link="right_propeller"/>
+        <origin xyz="-.03 0.1 0.02" rpy="0 ${pi/2} 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="right_propeller">
+        <visual>
+            <geometry>
+                <cylinder radius=".02" length=".06"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+    </link>
+
 </robot>
