@@ -1,6 +1,9 @@
 /home/samarth/SOAP/install/soap_package/share/soap_package/config/empty.yaml
+/home/samarth/SOAP/install/soap_package/share/soap_package/description/gazebo_control.xacro
+/home/samarth/SOAP/install/soap_package/share/soap_package/description/inertial_macros.xacro
 /home/samarth/SOAP/install/soap_package/share/soap_package/description/robot.urdf.xacro
 /home/samarth/SOAP/install/soap_package/share/soap_package/description/robot_core.xacro
+/home/samarth/SOAP/install/soap_package/share/soap_package/launch/launch_sim.launch.py
 /home/samarth/SOAP/install/soap_package/share/soap_package/launch/rsp.launch.py
 /home/samarth/SOAP/install/soap_package/share/soap_package/worlds/empty.world
 /home/samarth/SOAP/install/soap_package/share/ament_index/resource_index/package_run_dependencies/soap_package
