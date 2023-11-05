@@ -1,4 +1,5 @@
 /home/samarth/SOAP/install/soap_package/share/soap_package/config/empty.yaml
+/home/samarth/SOAP/install/soap_package/share/soap_package/description/camera.xacro
 /home/samarth/SOAP/install/soap_package/share/soap_package/description/gazebo_control.xacro
 /home/samarth/SOAP/install/soap_package/share/soap_package/description/inertial_macros.xacro
 /home/samarth/SOAP/install/soap_package/share/soap_package/description/robot.urdf.xacro
