@@ -2,6 +2,7 @@ import Adafruit_DHT
 import time
 import smbus
 from time import sleep
+import RPi.GPIO as GPIO
 
 PWR_MGMT_1   = 0x6B
 SMPLRT_DIV   = 0x19
@@ -18,6 +19,19 @@ TEMP = 0x41
  
 DHT_SENSOR = Adafruit_DHT.DHT11
 DHT_PIN = 4
+
+LED_PIN = 17
+on = false
+def light():
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(LED_PIN, GPIO.OUT)
+	if(on){
+		GPIO.output(LED_PIN, GPIO.LOW)
+	}
+	else{
+		GPIO.output(LED_PIN, GPIO.HIGH)
+	}
+	GPIO.cleanup()
 
 def MPU_Init():
 	#write to sample rate register
