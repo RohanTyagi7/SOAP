@@ -3,6 +3,9 @@ import time
 import smbus
 from time import sleep
 import RPi.GPIO as GPIO
+from pijuice import PiJuice
+
+pijuice = PiJuice(1,0x14)
 
 PWR_MGMT_1   = 0x6B
 SMPLRT_DIV   = 0x19
@@ -21,18 +24,31 @@ DHT_SENSOR = Adafruit_DHT.DHT11
 DHT_PIN = 4
 
 LED_PIN = 17
-on = false
+on = False
 def light():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(LED_PIN, GPIO.OUT)
-	if(on){
+	if(on):
 		GPIO.output(LED_PIN, GPIO.LOW)
-	}
-	else{
+		on = False
+	else:
 		GPIO.output(LED_PIN, GPIO.HIGH)
-	}
+		on = True
 	GPIO.cleanup()
 
+def light2(go):
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(LED_PIN, GPIO.OUT)
+	if(go):
+		GPIO.output(LED_PIN, GPIO.LOW)
+	else:
+		GPIO.output(LED_PIN, GPIO.HIGH)
+	GPIO.cleanup()
+	
+def checkValue(val):
+    val = val['data'] if val['error'] == 'NO_ERROR' else val['error']
+    return val
+	
 def MPU_Init():
 	#write to sample rate register
 	bus.write_byte_data(Device_Address, SMPLRT_DIV, 7)
@@ -92,8 +108,14 @@ def humidityData():
     return temperature,humidity
   else:
     print("Sensor failure. Check wiring.");
- 
-while True:
-    
-    time.sleep(2);
 
+time = 0;
+while True:
+	if(time % 1 == 0):
+		light()
+	if(checkValue(pijuice.status.GetChargeLevel()) < 15):
+		light2(True)
+	else:
+		light2(False)
+	time.sleep(0.5)
+	time += 0.5
