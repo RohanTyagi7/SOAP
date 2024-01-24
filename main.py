@@ -117,5 +117,6 @@ while True:
 		light2(True)
 	else:
 		light2(False)
+	
 	time.sleep(0.5)
 	time += 0.5
